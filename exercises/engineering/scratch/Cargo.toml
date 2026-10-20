@@ -1,0 +1,7 @@
+[package]
+name = "scratch"
+version = "0.1.0"
+edition = "2021"
+
+# Own workspace root: keeps this crate out of the repo workspace so you can freely edit profiles, features, CI.
+[workspace]

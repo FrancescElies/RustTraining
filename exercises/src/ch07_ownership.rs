@@ -1,16 +1,19 @@
 //! Ch07 Ownership, borrowing, lifetimes (book: ch07-*.md)
 //! Goals: move vs borrow, &mut exclusivity, lifetimes in signatures, Rc/RefCell/Box.
 use std::cell::RefCell;
+use std::collections::HashMap;
 use std::rc::Rc;
 
 /// Take ownership of the String, return it with "!" appended.
-pub fn shout(s: String) -> String {
-    todo!()
+pub fn shout(mut s: String) -> String {
+    s.push_str("!");
+    s
 }
 
 /// Borrow immutably: count vowels (aeiou, lowercase).
 pub fn vowels(s: &str) -> usize {
-    todo!()
+    s.chars()
+        .fold(0, |acc, x| if "aeiou".contains(x) { acc + 1 } else { acc })
 }
 
 /// Borrow mutably: double every element in place.

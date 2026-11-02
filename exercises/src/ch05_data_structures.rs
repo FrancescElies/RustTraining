@@ -11,25 +11,33 @@ pub struct Rect {
 impl Rect {
     /// Associated function (no self): a square of side `s`.
     pub fn square(s: f64) -> Rect {
-        todo!()
+        Rect { w: s, h: s }
     }
     /// &self method.
     pub fn area(&self) -> f64 {
-        todo!()
+        self.w * self.h
     }
     /// &mut self method: multiply both sides by `k`.
     pub fn scale(&mut self, k: f64) {
-        todo!()
+        self.w *= k;
+        self.h *= k;
     }
     /// self by value: consume and return rect with w and h swapped.
     pub fn rotated(self) -> Rect {
-        todo!()
+        Rect {
+            w: self.h,
+            h: self.w,
+        }
     }
 }
 
 /// Count how often each word appears (split_whitespace). Use HashMap + the entry API.
 pub fn word_count(text: &str) -> HashMap<String, usize> {
-    todo!()
+    let mut h = HashMap::new();
+    for x in text.split_whitespace() {
+        *h.entry(x.to_owned()).or_insert(0) += 1;
+    }
+    h
 }
 
 /// A stack backed by a Vec.
@@ -40,16 +48,16 @@ pub struct Stack {
 
 impl Stack {
     pub fn push(&mut self, x: i32) {
-        todo!()
+        self.items.push(x);
     }
     pub fn pop(&mut self) -> Option<i32> {
-        todo!()
+        self.items.pop()
     }
     pub fn peek(&self) -> Option<&i32> {
-        todo!()
+        self.items.last()
     }
     pub fn len(&self) -> usize {
-        todo!()
+        self.items.len()
     }
 }
 

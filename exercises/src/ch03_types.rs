@@ -3,27 +3,30 @@
 
 /// Convert Celsius to Fahrenheit. (hint: f64 * 9/5 + 32; literals need to be floats)
 pub fn c_to_f(c: f64) -> f64 {
-    todo!()
+    c * 9. / 5. + 32.
 }
 
 /// Add two u8 without overflow panic/wrap: return None on overflow. (hint: checked_add)
 pub fn safe_add(a: u8, b: u8) -> Option<u8> {
-    todo!()
+    a.checked_add(b)
 }
 
 /// Return (min, max) of a non-empty slice. Tuples!
 pub fn min_max(v: &[i32]) -> (i32, i32) {
-    todo!()
+    assert!(!v.is_empty(), "expected v not empty");
+    v.iter().fold((i32::MAX, i32::MIN), |(min, max), &x| {
+        (if x < min { x } else { min }, if x > max { x } else { max })
+    })
 }
 
 /// Return the first word of a string slice (split on ' '); "" if empty. No allocation: return &str.
 pub fn first_word(s: &str) -> &str {
-    todo!()
+    s.split(" ").nth(0).unwrap_or(" ")
 }
 
 /// Convert an i64 to u8, saturating: <0 -> 0, >255 -> 255. (hint: `as` truncates! use comparisons or clamp)
 pub fn to_u8_saturating(x: i64) -> u8 {
-    todo!()
+    x.clamp(0, u8::MAX as i64) as u8
 }
 
 #[cfg(test)]
